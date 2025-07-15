@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\admin\TrainingCategoryController;
+use App\Models\TrainingCategory;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
 
@@ -57,6 +59,8 @@ Route::middleware('auth')->group(function () {
     Route::resource("sliders", SliderController::class);
 
     Route::resource('abouts',AboutController::class);
+
+    Route::resource('training-categories',TrainingCategoryController::class);
 
     Route::get("settings", [SettingController::class, "index"])->name("setting.index");
     Route::put("settings", [SettingController::class, "update"])->name("setting.update");
