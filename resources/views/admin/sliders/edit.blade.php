@@ -47,22 +47,31 @@
                     @csrf
                     @method("PUT")
                     <div class="form-group row">
-                        <label for="title" class="col-sm-3 col-form-label text-right font-weight-bold">Title</label>
+                        <label for="caption" class="col-sm-3 col-form-label text-right font-weight-bold">Caption</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="title" value="{{ $slider->title }}"
-                                   name="title"
+                            <input type="text"
+                                   id="caption"
+                                   name="caption"
+                                   value="{{ old('caption', $slider->caption) }}"
+                                   class="form-control @error('caption') is-invalid @enderror"
                                    autofocus>
+
+                            @error('caption')
+                            <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                            @enderror
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="subtitle"
-                               class="col-sm-3 col-form-label text-right font-weight-bold">Subtitle</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="subtitle" value="{{ $slider->subtitle }}"
-                                   name="subtitle">
-                        </div>
-                    </div>
+{{--                    <div class="form-group row">--}}
+{{--                        <label for="subtitle"--}}
+{{--                               class="col-sm-3 col-form-label text-right font-weight-bold">Subtitle</label>--}}
+{{--                        <div class="col-sm-6">--}}
+{{--                            <input type="text" class="form-control" id="subtitle" value="{{ $slider->subtitle }}"--}}
+{{--                                   name="subtitle">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
                     {{-- <div class="form-group row">
                         <label for="sulg" class="col-sm-3 col-form-label text-right font-weight-bold">Sulg</label>

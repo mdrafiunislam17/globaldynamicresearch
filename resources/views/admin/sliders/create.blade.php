@@ -47,22 +47,18 @@
                 <form action="{{ route("sliders.store") }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group row">
-                        <label for="title" class="col-sm-3 col-form-label text-right font-weight-bold">Title</label>
+                        <label for="caption" class="col-sm-3 col-form-label text-right font-weight-bold">Caption</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="title" value="{{ old("title") }}"
-                                   name="title"
+                            <input type="text" class="form-control" id="caption" value="{{ old("caption") }}"
+                                   name="caption"
                                    autofocus>
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="subtitle"
-                               class="col-sm-3 col-form-label text-right font-weight-bold">Subtitle</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="subtitle" value="{{ old("subtitle") }}"
-                                   name="subtitle">
-                        </div>
-                    </div>
+
+
+
+
 
                     {{-- <div class="form-group row">
                         <label for="sulg" class="col-sm-3 col-form-label text-right font-weight-bold">Sulg</label>

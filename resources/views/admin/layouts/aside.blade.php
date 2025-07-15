@@ -20,6 +20,30 @@
         </a>
     </li>
 
+     <li class="nav-item {{
+        request()->routeIs("sliders.index") ||
+        request()->routeIs("sliders.create") ||
+        request()->routeIs("sliders.show") ||
+        request()->routeIs("sliders.edit")
+        ? "active" : "" }}">
+        <a class="nav-link" href="{{ route("sliders.index") }}">
+            <i class="fas fa-fw fa-tablet"></i>
+            <span>Sliders</span>
+        </a>
+    </li>
+
+
+    <li class="nav-item {{
+        request()->routeIs('abouts.index') ||
+        request()->routeIs('abouts.create') ||
+        request()->routeIs('abouts.show') ||
+        request()->routeIs('abouts.edit') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('abouts.index') }}">
+            <i class="fas fa-fw fa-info-circle"></i>
+            <span>About</span>
+        </a>
+    </li>
+
     {{-- <li class="nav-item {{
     request()->routeIs("career.index") ||
     request()->routeIs("career.create") ||
@@ -63,7 +87,7 @@
         </a>
     </li>
 @endcanany --}}
-
+{{--
 @canany(['slider-list', 'slider-create', 'slider-edit', 'slider-delete'])
     <li class="nav-item {{
         request()->routeIs("sliders.index") ||
@@ -281,7 +305,7 @@
         </a>
     </li>
 
-@endcanany
+@endcanany --}}
 
 
 
@@ -480,7 +504,7 @@
     </li>
 @endcanany --}}
 
-
+{{--
 @canany(['role-list', 'role-create', 'role-edit', 'role-delete'])
     <li class="nav-item {{
         request()->routeIs('role.index') ||
@@ -506,16 +530,16 @@
             <span>Assign Role</span>
         </a>
     </li>
-@endcanany
+@endcanany --}}
 
- @if(auth()->user()->hasRole('superadmin'))
+
         <li class="nav-item {{ request()->routeIs('setting.index') || request()->routeIs('setting.update') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('setting.index') }}">
                 <i class="fas fa-cog"></i>
                 <span>Settings</span>
             </a>
         </li>
-    @endif
+
 
 
 </ul>

@@ -47,14 +47,14 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="subtitle"
-                               class="col-sm-3 col-form-label text-right font-weight-bold">Subtitle</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="subtitle" name="subtitle"
-                                   value="{{ old('subtitle', $about->subtitle) }}">
-                        </div>
-                    </div>
+{{--                    <div class="form-group row">--}}
+{{--                        <label for="subtitle"--}}
+{{--                               class="col-sm-3 col-form-label text-right font-weight-bold">Subtitle</label>--}}
+{{--                        <div class="col-sm-6">--}}
+{{--                            <input type="text" class="form-control" id="subtitle" name="subtitle"--}}
+{{--                                   value="{{ old('subtitle', $about->subtitle) }}">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
                     <div class="form-group row">
                         <label for="description"
@@ -82,22 +82,22 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="image"
-                               class="col-sm-3 col-form-label text-right font-weight-bold">Existing Image1</label>
-                        <div class="col-sm-6">
-                            <img src="{{ asset('uploads/about/' . $about->image1) }}" width="120"
-                                 alt="{{ $about->image1 }}">
-                        </div>
-                    </div>
+{{--                    <div class="form-group row">--}}
+{{--                        <label for="image"--}}
+{{--                               class="col-sm-3 col-form-label text-right font-weight-bold">Existing Image1</label>--}}
+{{--                        <div class="col-sm-6">--}}
+{{--                            <img src="{{ asset('uploads/about/' . $about->image1) }}" width="120"--}}
+{{--                                 alt="{{ $about->image1 }}">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
-                    <div class="form-group row">
-                        <label for="image1"
-                               class="col-sm-3 col-form-label text-right font-weight-bold">Image1 </label>
-                        <div class="col-sm-6">
-                            <input type="file" class="form-control" id="image1" name="image1">
-                        </div>
-                    </div>
+{{--                    <div class="form-group row">--}}
+{{--                        <label for="image1"--}}
+{{--                               class="col-sm-3 col-form-label text-right font-weight-bold">Image1 </label>--}}
+{{--                        <div class="col-sm-6">--}}
+{{--                            <input type="file" class="form-control" id="image1" name="image1">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
 
 

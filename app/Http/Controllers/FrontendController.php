@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
+use App\Models\Setting;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -9,13 +12,19 @@ class FrontendController extends Controller
     //
      public function index()
     {
-         return view('frontend.index');
+        $sliders = Slider::where('status',1)
+                            ->get();
+
+        $settings = Setting::query()->pluck("value", "setting_name")->toArray();
+         return view('frontend.index',compact('sliders','settings',));
     }
 
 
     public function aboutus()
     {
-        return view('frontend.aboutus');
+        $about = About::latest()->first();
+        $settings = Setting::query()->pluck("value", "setting_name")->toArray();
+        return view('frontend.aboutus',compact('settings','about'));
     }
 
     public function stata()

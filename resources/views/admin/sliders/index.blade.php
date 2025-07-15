@@ -36,8 +36,7 @@
                         <tr>
                             <th>Sort</th>
                             <th>Image</th>
-                            <th>Title</th>
-                            <th>Subtitle</th>
+                            <th>Caption</th>
                             <th>Status</th>
                             <th style="width: 100px">Action</th>
                         </tr>
@@ -47,8 +46,7 @@
                             <tr>
                                 <td>{{ $slider->sort }}</td>
                                 <td><img src="{{ asset("uploads/slider/$slider->image") }}" width="100" alt=""></td>
-                                <td>{{ $slider->title }}</td>
-                                <td>{{ $slider->subtitle }}</td>
+                                <td>{{ $slider->caption }}</td>
                                 <td>
                                     @if ($slider->status == 1)
                                         <span class="badge badge-success badge-counter">Active</span>

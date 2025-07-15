@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
 
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\SliderController;
 
 
 /*
@@ -51,6 +53,10 @@ Auth::routes();
 
 
 Route::middleware('auth')->group(function () {
+
+    Route::resource("sliders", SliderController::class);
+
+    Route::resource('abouts',AboutController::class);
 
     Route::get("settings", [SettingController::class, "index"])->name("setting.index");
     Route::put("settings", [SettingController::class, "update"])->name("setting.update");

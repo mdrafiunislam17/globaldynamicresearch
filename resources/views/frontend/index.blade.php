@@ -114,52 +114,62 @@
                             <div id="metaslider-id-227" style="max-width: 1000px;" class="ml-slider-3-99-0 metaslider metaslider-responsive metaslider-227 ml-slider ms-theme-default" role="region" aria-label="Home Slider" data-width="1000">
                                 <div id="metaslider_container_227">
                                     <ul id='metaslider_227' class='rslides'>
+
+                                        @foreach ($sliders as $slider)
+
+
                                         <li aria-roledescription='slide' aria-labelledby='slide-0'>
                                             <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201000%20510'%3E%3C/svg%3E"
-                                            data-src="assets/uploads/2025/07/PXL_20250702_050951256.MP2_-scaled-1000x510.jpg"
-                                                height="510" width="1000" alt="" class="slider-227 slide-7956 msDefaultImage lazy" title="PXL_20250702_050951256.MP~2" />
+                                            data-src="{{ asset("uploads/slider/$slider->image") }}"
+                                                height="510" width="1000" alt="" class="slider-227 slide-7956 msDefaultImage lazy"
+                                                  />
                                             <div class="caption-wrap">
                                                 <div class="caption">
-                                                    <div>ISRT welcomed its 31st batch and the third cohort of Applied Statistics and Data Science students on July 2, 2025.</div>
+                                                    <div> <h5 class="entry-title">
+                                                            {{$slider->caption}}
+                                                        </h5></div>
                                                 </div>
                                             </div>
                                         </li>
-                                        <li style='display: none;' aria-roledescription='slide' aria-labelledby='slide-1'>
-                                            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201000%20510'%3E%3C/svg%3E"
-                                            data-src="assets/uploads/2025/06/ISRTAA_Scholarship-1000x510.jpeg" height="510"
-                                                width="1000" alt="" class="slider-227 slide-7955 msDefaultImage lazy" title="ISRTAA_Scholarship" />
-                                            <div class="caption-wrap">
-                                                <div class="caption">
-                                                    <div>
-                                                        <h5 class="entry-title">ISRTAA Students’ Stipend Handover Ceremony Held at ISRT on May 27, 2025</h5>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li style='display: none;' aria-roledescription='slide' aria-labelledby='slide-2'>
-                                            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201000%20510'%3E%3C/svg%3E"
-                                            data-src="assets/uploads/2025/03/IMG_7864-scaled-1000x510.jpeg" height="510"
-                                                width="1000" alt="" class="slider-227 slide-7513 msDefaultImage lazy" title="IMG_7864" />
-                                            <div class="caption-wrap">
-                                                <div class="caption">
-                                                    <div>
-                                                        <h5 class="entry-title">Third-Year Students of Applied Statistics Visited Gazipur Agricultural University on 25th February 2025.</h5>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li style='display: none;' aria-roledescription='slide' aria-labelledby='slide-3'>
-                                            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201000%20510'%3E%3C/svg%3E"
-                                            data-src="assets/uploads/2025/03/IMG_7826-scaled-1000x510.jpeg" height="510"
-                                                width="1000" alt="" class="slider-227 slide-7512 msDefaultImage lazy" title="IMG_7826" />
-                                            <div class="caption-wrap">
-                                                <div class="caption">
-                                                    <div>
-                                                        <h5 class="entry-title">Third-Year Students of Applied Statistics Visited Gazipur Agricultural University on 25th February 2025.</h5>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
+
+                                        @endforeach
+
+{{--                                        <li style='display: none;' aria-roledescription='slide' aria-labelledby='slide-1'>--}}
+{{--                                            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201000%20510'%3E%3C/svg%3E"--}}
+{{--                                            data-src="assets/uploads/2025/06/ISRTAA_Scholarship-1000x510.jpeg" height="510"--}}
+{{--                                                width="1000" alt="" class="slider-227 slide-7955 msDefaultImage lazy" title="ISRTAA_Scholarship" />--}}
+{{--                                            <div class="caption-wrap">--}}
+{{--                                                <div class="caption">--}}
+{{--                                                    <div>--}}
+{{--                                                        <h5 class="entry-title">ISRTAA Students’ Stipend Handover Ceremony Held at ISRT on May 27, 2025</h5>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </li>--}}
+{{--                                        <li style='display: none;' aria-roledescription='slide' aria-labelledby='slide-2'>--}}
+{{--                                            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201000%20510'%3E%3C/svg%3E"--}}
+{{--                                            data-src="assets/uploads/2025/03/IMG_7864-scaled-1000x510.jpeg" height="510"--}}
+{{--                                                width="1000" alt="" class="slider-227 slide-7513 msDefaultImage lazy" title="IMG_7864" />--}}
+{{--                                            <div class="caption-wrap">--}}
+{{--                                                <div class="caption">--}}
+{{--                                                    <div>--}}
+{{--                                                        <h5 class="entry-title">Third-Year Students of Applied Statistics Visited Gazipur Agricultural University on 25th February 2025.</h5>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </li>--}}
+{{--                                        <li style='display: none;' aria-roledescription='slide' aria-labelledby='slide-3'>--}}
+{{--                                            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201000%20510'%3E%3C/svg%3E"--}}
+{{--                                            data-src="assets/uploads/2025/03/IMG_7826-scaled-1000x510.jpeg" height="510"--}}
+{{--                                                width="1000" alt="" class="slider-227 slide-7512 msDefaultImage lazy" title="IMG_7826" />--}}
+{{--                                            <div class="caption-wrap">--}}
+{{--                                                <div class="caption">--}}
+{{--                                                    <div>--}}
+{{--                                                        <h5 class="entry-title">Third-Year Students of Applied Statistics Visited Gazipur Agricultural University on 25th February 2025.</h5>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </li>--}}
                                         {{-- <li style='display: none;' aria-roledescription='slide' aria-labelledby='slide-4'><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201000%20510'%3E%3C/svg%3E" data-src="https://isrt.ac.bd/wp-content/uploads/2025/03/IMG_20250225_105932503-scaled-1000x510.jpg"
                                                 height="510" width="1000" alt="" class="slider-227 slide-7511 msDefaultImage lazy" title="IMG_20250225_105932503" />
                                             <div class="caption-wrap">
