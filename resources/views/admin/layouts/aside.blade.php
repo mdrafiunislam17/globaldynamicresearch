@@ -44,6 +44,59 @@
         </a>
     </li>
 
+
+
+    <li class="nav-item {{
+    request()->routeIs('workshop.index') ||
+    request()->routeIs('workshop.create') ||
+    request()->routeIs('workshop.show') ||
+    request()->routeIs('workshop.edit') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('workshop.index') }}">
+            <i class="fas fa-fw fa-chalkboard-teacher"></i>
+            <span>Workshop</span>
+        </a>
+    </li>
+
+
+
+    <li class="nav-item {{
+    request()->routeIs('seminar.index') ||
+    request()->routeIs('seminar.create') ||
+    request()->routeIs('seminar.show') ||
+    request()->routeIs('seminar.edit') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('seminar.index') }}">
+            <i class="fas fa-fw fa-chalkboard-teacher"></i>
+
+            <span>seminar</span>
+        </a>
+    </li>
+
+
+
+
+    <li class="nav-item {{
+    request()->routeIs('publication.index') ||
+    request()->routeIs('publication.create') ||
+    request()->routeIs('publication.show') ||
+    request()->routeIs('publication.edit') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('publication.index') }}">
+            <i class="fas fa-fw fa-newspaper"></i>
+
+            <span>publication</span>
+        </a>
+    </li>
+
+    <li class="nav-item {{
+    request()->routeIs('conference-categories.index') ||
+    request()->routeIs('conference-categories.create') ||
+    request()->routeIs('conference-categories.show') ||
+    request()->routeIs('conference-categories.edit') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('conference-categories.index') }}">
+            <i class="fas fa-fw fa-chalkboard"></i>
+
+            <span>conference-categories</span>
+        </a>
+    </li>
     {{-- <li class="nav-item {{
     request()->routeIs("career.index") ||
     request()->routeIs("career.create") ||

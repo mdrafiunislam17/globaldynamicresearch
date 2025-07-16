@@ -1,13 +1,13 @@
 @extends("admin.layouts.master")
-@section("title", "project categories")
+@section("title", "Conference Categories")
 @section("content")
     <div class="container-fluid">
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Create project categories</h1>
-            <a href="{{ route("project-categories.index") }}"
+            <h1 class="h3 mb-0 text-gray-800">Create Conference Categories</h1>
+            <a href="{{ route("conference-categories.index") }}"
                class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                    class="fas fa-eye fa-sm text-white-50"></i> project categories</a>
+                    class="fas fa-eye fa-sm text-white-50"></i> Conference Categories</a>
         </div>
 
         @if ($errors->any())
@@ -44,7 +44,7 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-body">
-                <form action="{{ route("project-categories.store") }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route("conference-categories.store") }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group row">
                         <label for="name" class="col-sm-3 col-form-label text-right font-weight-bold">Name *</label>

@@ -100,20 +100,20 @@
                                 </ul>
                             </li>
 
-                             <li id="menu-item-200" class="menu-item menu-item-type-post_type menu-item-object-page nav-item menu-item-200"><a title="About ISRT" href="{{route('frontend.workshops')}}" class="nav-link">Workshops</a></li>
+                             <li id="menu-item-200" class="menu-item menu-item-type-post_type menu-item-object-page nav-item menu-item-200"><a title="About ISRT" href="{{route('frontend.workshop')}}" class="nav-link">Workshops</a></li>
 
-                            <li id="menu-item-266" class="menu-item menu-item-type-taxonomy menu-item-object-tribe_events_cat nav-item menu-item-266"><a title="Seminar" href="{{route('frontend.seminar')}}" class="nav-link">Seminar</a></li>
+                            <li id="menu-item-266" class="menu-item menu-item-type-taxonomy menu-item-object-tribe_events_cat nav-item menu-item-266"><a title="Seminar" href="{{route('frontendSeminar')}}" class="nav-link">Seminar</a></li>
                               <li id="menu-item-3082" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children nav-item menu-item-3082 dropdown">
                                 <a title="Conference" href="#" data-toggle="dropdown" class="nav-link dropdown-toggle" aria-haspopup="true">Conference <span class="caret"></span>
                                 </a>
                                 <ul class=" dropdown-menu" role="menu">
-                                    <li id="menu-item-6687" class="menu-item menu-item-type-custom menu-item-object-custom nav-item menu-item-6687"><a title="ICAS2014" href="{{route('frontend.Conference.icas')}}" class="nav-link">ICAS2014</a></li>
-                                    <li id="menu-item-6686" class="menu-item menu-item-type-custom menu-item-object-custom nav-item menu-item-6686"><a title="ICAS2019" href="{{route('frontend.Conference.icas')}}" class="nav-link">ICAS2019</a></li>
-                                    <li id="menu-item-6689" class="menu-item menu-item-type-custom menu-item-object-custom nav-item menu-item-6689"><a title="ICASDS2025" href="{{route('frontend.Conference.icas')}}" class="nav-link">ICASDS2025</a></li>
+                                    <li id="menu-item-6687" class="menu-item menu-item-type-custom menu-item-object-custom nav-item menu-item-6687"><a title="ICAS2014" href="{{route('frontendConferenceUS')}}" class="nav-link">ICAS2014</a></li>
+                                    <li id="menu-item-6686" class="menu-item menu-item-type-custom menu-item-object-custom nav-item menu-item-6686"><a title="ICAS2019" href="{{route('frontendConferenceUS')}}" class="nav-link">ICAS2019</a></li>
+                                    <li id="menu-item-6689" class="menu-item menu-item-type-custom menu-item-object-custom nav-item menu-item-6689"><a title="ICASDS2025" href="{{route('frontendConferenceUS')}}" class="nav-link">ICASDS2025</a></li>
                                 </ul>
                             </li>
 
-                            <li id="menu-item-5831" class="menu-item menu-item-type-post_type menu-item-object-page nav-item menu-item-5831"><a title="Publications" href="{{route('frontend.publications')}}" class="nav-link">Publications</a></li>
+                            <li id="menu-item-5831" class="menu-item menu-item-type-post_type menu-item-object-page nav-item menu-item-5831"><a title="Publications" href="{{route('frontendPublications')}}" class="nav-link">Publications</a></li>
                             <li id="menu-item-5831" class="menu-item menu-item-type-post_type menu-item-object-page nav-item menu-item-5831"><a title="Payment" href="{{route('frontend.payment')}}" class="nav-link">Payment</a></li>
                             <li id="menu-item-5831" class="menu-item menu-item-type-post_type menu-item-object-page nav-item menu-item-5831"><a title="Contact " href="{{route('frontend.contactUs')}}" class="nav-link">Contact </a></li>
 

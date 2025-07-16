@@ -1,13 +1,13 @@
 @extends("admin.layouts.master")
-@section("title", "workProcesses")
+@section("title", "Conference Categories")
 @section("content")
     <div class="container-fluid">
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">workProcesses</h1>
-            <a href="{{ route("works.create") }}"
+            <h1 class="h3 mb-0 text-gray-800">Conference Categories</h1>
+            <a href="{{ route("conference-categories.create") }}"
                class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                    class="fas fa-plus fa-sm text-white-50"></i> Create workProcesses</a>
+                    class="fas fa-plus fa-sm text-white-50"></i> Create Conference Categoriess</a>
         </div>
 
         @if (session()->has("success"))
@@ -36,34 +36,24 @@
                         <tr>
                             <th>#SL</th>
                             <th>Name</th>
-                            <th>Icon</th>
-                            <th>Status</th>
+
                             <th style="width: 100px">Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach( $workProcesses as $i => $work)
+                        @foreach( $categories as $i => $categorie)
                             <tr>
                                 <td>{{ ++$i }}</td>
-                                <td>{{ $work->name }}</td>
-                                <td><img src="{{ asset("uploads/work/$work->icon") }}" width="100" alt=""></td>
-                                <td>
-                                    @if ($work->status == 1)
-                                        <span class="badge badge-success badge-counter">Active</span>
-                                    @else
-                                        <span class="badge badge-danger badge-counter">Inactive</span>
-                                    @endif
-                                </td>
+                                <td>{{ $categorie->name }}</td>
 
                                 <td>
-                                    {{--                                    <a href="{{ route("$clients.show", $client->id) }}" class="btn btn-sm"><i--}}
-                                    {{--                                            class="fa fa-eye"></i></a>--}}
-                                    <a href="{{ route("works.edit", $work->id) }}" class="btn btn-sm btn-warning"><i
+
+                                    <a href="{{ route("conference-categories.edit", $categorie->id) }}" class="btn btn-sm btn-warning"><i
                                             class="fa fa-edit"></i></a>
-                                    <form action="{{ route('works.destroy', $work->id) }}" method="post" class="d-inline delete-form" data-id="{{ $work->id }}">
+                                    <form action="{{ route('conference-categories.destroy', $categorie->id) }}" method="post" class="d-inline delete-form" data-id="{{ $categorie->id }}">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="button" class="btn btn-sm btn-danger delete-btn h-100" data-id="{{ $work->id }}">
+                                        <button type="button" class="btn btn-sm btn-danger delete-btn h-100" data-id="{{ $categorie->id }}">
                                             <i class="fa fa-trash"></i>
                                         </button>
                                     </form>

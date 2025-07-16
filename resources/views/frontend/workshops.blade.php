@@ -1,92 +1,68 @@
 @extends('frontend.layouts.app')
+
 @section('title', 'Workshops')
+
 @section('content')
+	<div class="wrapper" id="page-wrapper">
+		<div class="container" id="content" tabindex="-1">
+			<div class="row">
+				<div class="col-md-12 content-area" id="primary">
+					<main class="site-main" id="main">
+						<article class="post-3213 page type-page status-publish hentry" id="post-3213">
+							<header class="entry-header text-center mb-4">
+								<h1 class="entry-title">Workshop</h1>
+							</header>
 
-<div class="wrapper" id="page-wrapper">
+							<div class="entry-content">
+								<hr>
 
-	<div class="container" id="content" tabindex="-1">
+								<h2 class="text-center fw-bold">
+									Research Methodology and Scientific Publication
+								</h2>
 
-		<div class="row">
+								<h3 class="text-center mt-4 fw-bold">
+									March 19, 2023
+								</h3>
 
-			<!-- Do the left sidebar check -->
+								<div class="mt-4">
+									<p><strong>Date and Time:</strong> Sunday, 19th March 2023, 2:00 p.m. – 4:30 p.m.</p>
+									<p><strong>Venue:</strong> Institute of Statistical Research and Training (ISRT), Room #303</p>
+									<p><strong>Technical Support:</strong> AdSEARCH by icddr,b</p>
+								</div>
 
+								<div class="mt-3">
+									<p><strong>Co-ordinators:</strong></p>
+									<ul>
+										<li>Ahmed Ehsanur Rahman, Associate Scientist, MCHD, icddr,b</li>
+										<li>Anisuddin Ahmed, Assistant Scientist and Project Coordinator, MCHD, icddr,b</li>
+									</ul>
+								</div>
 
+								<div class="mt-3">
+									<p><strong>Session I:</strong> Experimental Study Designs (Cross Over Design, Stepped Wedge Randomized Control Trial)</p>
+									<p><strong>Facilitator:</strong> Fariya Rahman, Research Investigator, Maternal and Child Health Division, icddr,b</p>
+								</div>
 
-<div class="col-md-9 content-area" id="primary">
-			<main class="site-main" id="main">
+								<div class="mt-3">
+									<p><strong>Session II:</strong> How to Convince the Editor to Publish Your Manuscript in a Scientific Journal</p>
+									<p><strong>Facilitator:</strong> Abu Sayeed Shuvo, Research Fellow, Maternal and Child Health Division, icddr,b</p>
+								</div>
 
+								<div class="text-center mt-4">
+									<img
+											src="https://www.isrt.ac.bd/wp-content/uploads/2022/08/Flyer_SDG_final-212x300.jpg"
+											alt="Workshop Flyer"
+											class="img-fluid"
+											width="400"
+									>
+								</div>
+							</div>
 
-					<article class="post-6677 page type-page status-publish hentry" id="post-6677">
-
-	<header class="entry-header">
-
-		<h3 class="entry-title">Workshops</h3>
-	</header><!-- .entry-header -->
-
-
-	<div class="entry-content">
-
-
-
-<p>At GDR, we regularly organize interactive workshops on various research topics designed to
-deepen your understanding of the research and publication process. These sessions cover
-everything from research design and methodology to journal selection and responding to
-reviewers. Whether you are a beginner or an experienced researcher, our workshops aim to equip
-you with practical skills to succeed in academic publishing.
-</p>
-
-
-
-{{-- <figure class="wp-block-image size-full is-resized">
-    <img fetchpriority="high" decoding="async" width="1810" height="2560"
-    src="https://isrt.ac.bd/wp-content/uploads/2024/09/final_flyer_stata-3-scaled.jpg"
-    data-src="https://isrt.ac.bd/wp-content/uploads/2024/09/final_flyer_stata-3-scaled.jpg" alt=""
-    class="wp-image-7021 lazy loaded" style="width:840px;height:auto"
-    data-srcset="https://isrt.ac.bd/wp-content/uploads/2024/09/final_flyer_stata-3-scaled.jpg 1810w, https://isrt.ac.bd/wp-content/uploads/2024/09/final_flyer_stata-3-212x300.jpg 212w, https://isrt.ac.bd/wp-content/uploads/2024/09/final_flyer_stata-3-724x1024.jpg 724w, https://isrt.ac.bd/wp-content/uploads/2024/09/final_flyer_stata-3-768x1086.jpg 768w, https://isrt.ac.bd/wp-content/uploads/2024/09/final_flyer_stata-3-1086x1536.jpg 1086w, https://isrt.ac.bd/wp-content/uploads/2024/09/final_flyer_stata-3-1448x2048.jpg 1448w"
-    data-sizes="(max-width: 1810px) 100vw, 1810px"
-    sizes="(max-width: 1810px) 100vw, 1810px"
-    srcset="https://isrt.ac.bd/wp-content/uploads/2024/09/final_flyer_stata-3-scaled.jpg 1810w, https://isrt.ac.bd/wp-content/uploads/2024/09/final_flyer_stata-3-212x300.jpg 212w, https://isrt.ac.bd/wp-content/uploads/2024/09/final_flyer_stata-3-724x1024.jpg 724w, https://isrt.ac.bd/wp-content/uploads/2024/09/final_flyer_stata-3-768x1086.jpg 768w, https://isrt.ac.bd/wp-content/uploads/2024/09/final_flyer_stata-3-1086x1536.jpg 1086w, https://isrt.ac.bd/wp-content/uploads/2024/09/final_flyer_stata-3-1448x2048.jpg 1448w" data-was-processed="true">
-</figure> --}}
-
-
-	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-
-
-	</footer><!-- .entry-footer -->
-
-</article><!-- #post-## -->
-
-
-
-			</main><!-- #main -->
-
-		</div><!-- #primary -->
-
-		<!-- Do the right sidebar check -->
-
-
-{{-- <div class="col-md-3 widget-area" id="right-sidebar" role="complementary">
-	<div class="sticky-top"><aside id="search-2" class="widget widget_search"><form method="get" id="searchform" action="https://isrt.ac.bd/" role="search">
-	<label class="assistive-text" for="s">Search</label>
-	<div class="input-group">
-		<input class="field form-control" id="s" name="s" type="text" placeholder="Search …">
-		<span class="input-group-btn">
-			<input class="submit btn btn-primary" id="searchsubmit" name="submit" type="submit" value="Search">
-	</span>
+							<footer class="entry-footer"></footer>
+						</article>
+					</main>
+				</div>
+			</div>
+		</div>
 	</div>
-</form>
-</aside></div>
-</div> --}}
-<!-- #secondary -->
-
-
-	</div><!-- .row -->
-
-</div><!-- Container end -->
-
-</div>
-
-
 @endsection

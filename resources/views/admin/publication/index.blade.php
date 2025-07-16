@@ -1,13 +1,13 @@
 @extends("admin.layouts.master")
-@section("title", "project categories")
+@section("title", "publication")
 @section("content")
     <div class="container-fluid">
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">project categories</h1>
-            <a href="{{ route("project-categories.create") }}"
+            <h1 class="h3 mb-0 text-gray-800">publication</h1>
+            <a href="{{ route("publication.create") }}"
                class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                    class="fas fa-plus fa-sm text-white-50"></i> Create project categoriess</a>
+                    class="fas fa-plus fa-sm text-white-50"></i> Create publication</a>
         </div>
 
         @if (session()->has("success"))
@@ -35,25 +35,35 @@
                         <thead>
                         <tr>
                             <th>#SL</th>
-                            <th>Name</th>
-
+                            <th>Title</th>
+                            <th>Image</th>
+                            <th>Status</th>
                             <th style="width: 100px">Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach( $categories as $i => $categorie)
+                        @foreach( $publication as $i => $work)
                             <tr>
                                 <td>{{ ++$i }}</td>
-                                <td>{{ $categorie->name }}</td>
+                                <td>{{ $work->title }}</td>
+                                <td><img src="{{ asset("uploads/publication/$work->image") }}" width="100" alt=""></td>
+                                <td>
+                                    @if ($work->status == 1)
+                                        <span class="badge badge-success badge-counter">Active</span>
+                                    @else
+                                        <span class="badge badge-danger badge-counter">Inactive</span>
+                                    @endif
+                                </td>
 
                                 <td>
-
-                                    <a href="{{ route("project-categories.edit", $categorie->id) }}" class="btn btn-sm btn-warning"><i
+                                    {{--                                    <a href="{{ route("$clients.show", $client->id) }}" class="btn btn-sm"><i--}}
+                                    {{--                                            class="fa fa-eye"></i></a>--}}
+                                    <a href="{{ route("publication.edit", $work->id) }}" class="btn btn-sm btn-warning"><i
                                             class="fa fa-edit"></i></a>
-                                    <form action="{{ route('project-categories.destroy', $categorie->id) }}" method="post" class="d-inline delete-form" data-id="{{ $categorie->id }}">
+                                    <form action="{{ route('publication.destroy', $work->id) }}" method="post" class="d-inline delete-form" data-id="{{ $work->id }}">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="button" class="btn btn-sm btn-danger delete-btn h-100" data-id="{{ $categorie->id }}">
+                                        <button type="button" class="btn btn-sm btn-danger delete-btn h-100" data-id="{{ $work->id }}">
                                             <i class="fa fa-trash"></i>
                                         </button>
                                     </form>
