@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\ConferenceCategory;
 use App\Models\Setting;
 use App\Models\Slider;
+use App\Models\Training;
+use App\Models\TrainingCategory;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -16,8 +19,41 @@ class FrontendController extends Controller
                             ->get();
 
         $settings = Setting::query()->pluck("value", "setting_name")->toArray();
-         return view('frontend.index',compact('sliders','settings',));
+
+        $trainingCategory = TrainingCategory::all();
+
+        $conferenceCategory = ConferenceCategory::all();
+
+
+
+         return view('frontend.index',
+             compact('sliders','settings','trainingCategory',
+             'conferenceCategory'));
     }
+
+    public function frontendTrainingCategory($slug)
+    {
+        $settings = Setting::query()->pluck("value", "setting_name")->toArray();
+
+        // ✅ If you want ALL categories
+        $trainingCategory = TrainingCategory::all();
+
+        // ✅ If you want ONLY the clicked category
+        $selectedCategory = TrainingCategory::all();
+
+        $conferenceCategory = ConferenceCategory::all();
+
+        $training = Training::where('slug', $slug)->firstOrFail();
+
+        return view('frontend.frontendTrainingCategory', compact(
+            'settings',
+            'trainingCategory',
+            'conferenceCategory',
+            'selectedCategory',
+            'training'
+        ));
+    }
+
 
 
     public function aboutus()
@@ -25,16 +61,6 @@ class FrontendController extends Controller
         $about = About::latest()->first();
         $settings = Setting::query()->pluck("value", "setting_name")->toArray();
         return view('frontend.aboutus',compact('settings','about'));
-    }
-
-    public function stata()
-    {
-        return view('frontend.stata');
-    }
-
-    public function appliedStatistics()
-    {
-        return view('frontend.appliedStatistics');
     }
 
     public function spss()

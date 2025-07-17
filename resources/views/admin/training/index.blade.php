@@ -1,13 +1,13 @@
 @extends("admin.layouts.master")
-@section("title", "conference")
+@section("title", "training")
 @section("content")
     <div class="container-fluid">
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">conference</h1>
-            <a href="{{ route("conference.create") }}"
+            <h1 class="h3 mb-0 text-gray-800">training</h1>
+            <a href="{{ route("training.create") }}"
                class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                    class="fas fa-plus fa-sm text-white-50"></i> Create conference</a>
+                    class="fas fa-plus fa-sm text-white-50"></i> Create training</a>
         </div>
 
         @if (session()->has("success"))
@@ -42,10 +42,10 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($conference as $i => $item)
+                        @foreach($training as $i => $item)
                             <tr>
                                <td>{{ ++$i }}</td>
-                                <td><img src="{{ asset("uploads/conference/$item->image") }}" width="100" alt=""></td>
+                                <td><img src="{{ asset("uploads/training/$item->image") }}" width="100" alt=""></td>
                                 <td>{{ $item->title }}</td>
                                 <td>
                                     @if ($item->status == 1)
@@ -56,12 +56,12 @@
                                 </td>
                                 <td>
 
-                                    <a href="{{ route("conference.edit", $item->id) }}" class="btn btn-sm btn-warning">
+                                    <a href="{{ route("training.edit", $item->id) }}" class="btn btn-sm btn-warning">
                                         <i class="fa fa-edit"></i>
                                     </a>
 
 
-                                    <form action="{{ route('conference.destroy', $item->id) }}" method="post" class="d-inline delete-form" data-id="{{ $item->id }}">
+                                    <form action="{{ route('training.destroy', $item->id) }}" method="post" class="d-inline delete-form" data-id="{{ $item->id }}">
                                         @csrf
                                         @method('DELETE')
                                         <button type="button" class="btn btn-sm btn-danger delete-btn h-100" data-id="{{ $item->id }}">
@@ -69,7 +69,7 @@
                                         </button>
                                     </form>
 {{--                                    --}}
-{{--                                    <form action="{{ route("conference.destroy", $item->id) }}" method="post" class="d-inline">--}}
+{{--                                    <form action="{{ route("training.destroy", $item->id) }}" method="post" class="d-inline">--}}
 {{--                                        @csrf--}}
 {{--                                        @method("DELETE")--}}
 {{--                                        <button class="btn btn-sm delete-btn" ><i class="fa fa-trash"></i></button>--}}

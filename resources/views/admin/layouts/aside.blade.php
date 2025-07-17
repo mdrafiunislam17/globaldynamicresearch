@@ -2,19 +2,19 @@
 
     <!-- Sidebar - Brand -->
     <li>
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('frontend.index')}}">
             <div class="sidebar-brand-icon rotate-n-15">
 
                <img src="{{ asset("storage/uploads/" . $settings["SETTING_SITE_LOGO"]) }}" class="w-75" alt="">
 
             </div>
-            <h6 class="sidebar-brand-text mx-3 mt-2 font-weight-bold" title="JA IT SOLUTION">jaisbd.com</h6>
+            <h6 class="sidebar-brand-text mx-3 mt-2 font-weight-bold" title="GDR">GDR</h6>
         </a>
     </li>
 
 
     <li class="nav-item ">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{route('home')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
         </a>
@@ -41,6 +41,31 @@
         <a class="nav-link" href="{{ route('abouts.index') }}">
             <i class="fas fa-fw fa-info-circle"></i>
             <span>About</span>
+        </a>
+    </li>
+
+    <li class="nav-item {{
+    request()->routeIs('training-categories.index') ||
+    request()->routeIs('training-categories.create') ||
+    request()->routeIs('training-categories.show') ||
+    request()->routeIs('training-categories.edit') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('training-categories.index') }}">
+            <i class="fas fa-graduation-cap"></i>
+
+            <span>Training Categorics</span>
+        </a>
+    </li>
+
+
+    <li class="nav-item {{
+    request()->routeIs('training.index') ||
+    request()->routeIs('training.create') ||
+    request()->routeIs('training.show') ||
+    request()->routeIs('training.edit') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('training.index') }}">
+            <i class="fas fa-chalkboard-teacher"></i>
+
+            <span>Training</span>
         </a>
     </li>
 
@@ -94,9 +119,23 @@
         <a class="nav-link" href="{{ route('conference-categories.index') }}">
             <i class="fas fa-fw fa-chalkboard"></i>
 
-            <span>conference-categories</span>
+            <span>Conference Categorics</span>
         </a>
     </li>
+
+
+    <li class="nav-item {{
+    request()->routeIs('conference.index') ||
+    request()->routeIs('conference.create') ||
+    request()->routeIs('conference.show') ||
+    request()->routeIs('conference.edit') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('conference.index') }}">
+            <i class="fas fa-fw fa-handshake"></i>
+
+            <span>Conference</span>
+        </a>
+    </li>
+
     {{-- <li class="nav-item {{
     request()->routeIs("career.index") ||
     request()->routeIs("career.create") ||

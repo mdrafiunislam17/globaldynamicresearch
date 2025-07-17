@@ -6,37 +6,40 @@ use App\Http\Controllers\Controller;
 use App\Models\Conference;
 use App\Models\ConferenceCategory;
 use App\Models\Setting;
+use App\Models\Training;
+use App\Models\TrainingCategory;
 use Exception;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class ConferenceController extends Controller
+class TrainingController extends Controller
 {
     //
+
 
 
 
     private function uploadImage($image): string
     {
         $imageName = time() . '.' . $image->getClientOriginalExtension();
-        $image->move(public_path('uploads/conference'), $imageName);
+        $image->move(public_path('uploads/training'), $imageName);
         return $imageName;
     }
 
     public function index()
     {
-        $conference = Conference::all();
+        $training = Training::all();
         $settings = Setting::pluck("value", "setting_name")->toArray();
-        return view('admin.conference.index', compact('conference','settings'));
+        return view('admin.training.index', compact('training','settings'));
     }
 
     public function create()
     {
-        $conferenceCategory = ConferenceCategory::all();
+        $trainingCategory = TrainingCategory::all();
         $settings = Setting::pluck("value", "setting_name")->toArray();
-        return view('admin.conference.create', compact('conferenceCategory','settings'));
+        return view('admin.training.create', compact('trainingCategory','settings'));
     }
     public function store(Request $request)
     {
@@ -45,9 +48,9 @@ class ConferenceController extends Controller
             'category_id' => 'required',
         ]);
         try {
-            $conference = New Conference();
+            $training = New Training();
 
-            $conference->fill([
+            $training->fill([
                 "title" => $request->input("title"),
                 "category_id" => $request->input("category_id"),
                 "slug" => $request->input("slug"),
@@ -55,26 +58,26 @@ class ConferenceController extends Controller
                 "status" => $request->input("status"),
             ]);
             if ($request->hasFile('image')) {
-                $conference->image = $this->uploadImage($request->file('image'));
+                $training->image = $this->uploadImage($request->file('image'));
             }
 
 
-            $conference->save();
-            return redirect()->route('conference.index')
-                ->with('success', 'conference created successfully.');
+            $training->save();
+            return redirect()->route('training.index')
+                ->with('success', 'Training created successfully.');
         } catch (Exception $e) {
             return redirect()->back()->withInput()->with('error', 'Error: ' . $e->getMessage());
         }
     }
 
-    public function edit(Conference $conference)
+    public function edit(Training $training)
     {
-        $conferenceCategory = ConferenceCategory::all();
+        $trainingCategory = TrainingCategory::all();
         $settings = Setting::pluck("value", "setting_name")->toArray();
-        return view('admin.conference.edit', compact('conference', 'conferenceCategory','settings'));
+        return view('admin.training.edit', compact('training', 'trainingCategory','settings'));
     }
 
-    public function update(Request $request, Conference $conference)
+    public function update(Request $request, Training $training)
     {
         $request->validate([
             'title' => 'required|string|max:255',
@@ -82,7 +85,7 @@ class ConferenceController extends Controller
         ]);
 
         try {
-            $conference->fill([
+            $training->fill([
                 "title" => $request->input("title"),
                 "category_id" => $request->input("category_id"),
                 "slug" => $request->input("slug"),
@@ -92,29 +95,29 @@ class ConferenceController extends Controller
 
             if ($request->hasFile('image')) {
                 // Delete old image if it exists
-                if ($conference->image && Storage::exists('public/uploads/' . $conference->image)) {
-                    Storage::delete('public/uploads/' . $conference->image);
+                if ($training->image && Storage::exists('public/uploads/' . $training->image)) {
+                    Storage::delete('public/uploads/' . $training->image);
                 }
 
-                $conference->image = $this->uploadImage($request->file('image'));
+                $training->image = $this->uploadImage($request->file('image'));
             }
 
-            $conference->save();
-            return redirect()->route('conference.index')
-                ->with('success', 'Conference updated successfully.');
+            $training->save();
+            return redirect()->route('training.index')
+                ->with('success', 'Training updated successfully.');
         } catch (QueryException $e) {
             return redirect()->back()->withInput()->with('error', 'Database error: ' . $e->getMessage());
         }
     }
 
-    public function destroy(Conference $conference): RedirectResponse
+    public function destroy(Training $training): RedirectResponse
     {
         try {
-            if ($conference->image && Storage::exists('public/uploads/' . $conference->image)) {
-                Storage::delete('public/uploads/' . $conference->image);
+            if ($training->image && Storage::exists('public/uploads/' . $training->image)) {
+                Storage::delete('public/uploads/' . $training->image);
             }
 
-            $conference->delete();
+            $training->delete();
 
             return back()->with('success', 'Conference deleted successfully.');
         } catch (Exception $e) {

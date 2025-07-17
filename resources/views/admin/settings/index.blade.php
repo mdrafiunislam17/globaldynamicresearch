@@ -57,14 +57,14 @@
                         </div>
                     </div> --}}
 
-                    {{-- <div class="form-group row">
+                     <div class="form-group row">
                         <label for="HOME_PAGE_CONTENT" class="col-sm-3 col-form-label text-right font-weight-bold">Home
                             Page Content</label>
                         <div class="col-sm-9">
                             <textarea name="HOME_PAGE_CONTENT" id="HOME_PAGE_CONTENT"
                                       class="form-control">{{ $settings["HOME_PAGE_CONTENT"] }}</textarea>
                         </div>
-                    </div> --}}
+                    </div>
                     <hr>
                     <div class="form-group row">
                         <label for="SETTING_SITE_LOGO"

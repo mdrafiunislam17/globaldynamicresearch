@@ -1,13 +1,13 @@
 @extends("admin.layouts.master")
-@section("title", "Create conference")
+@section("title", "Create training")
 @section("content")
     <div class="container-fluid">
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Create conference</h1>
-            <a href="{{ route("conference.index") }}"
+            <h1 class="h3 mb-0 text-gray-800">Create training</h1>
+            <a href="{{ route("training.index") }}"
                class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                    class="fas fa-eye fa-sm text-white-50"></i> conferences</a>
+                    class="fas fa-eye fa-sm text-white-50"></i> trainings</a>
         </div>
 
         @if ($errors->any())
@@ -44,7 +44,7 @@
     <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-body">
-                <form action="{{ route("conference.store") }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route("training.store") }}" method="post" enctype="multipart/form-data">
                     @csrf
 
                       <div class="form-group row">
@@ -52,7 +52,7 @@
                         <div class="col-sm-6">
                             <select name="category_id" id="category_id" class="form-control">
                                 <option value="">Select Category</option>
-                                @foreach($conferenceCategory as $category)
+                                @foreach($trainingCategory as $category)
                                     <option value="{{ $category->id }}" {{ old("category_id") == $category->id ? "selected" : "" }}>{{ $category->name }}</option>
                                 @endforeach
                             </select>

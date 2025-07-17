@@ -94,8 +94,17 @@
                             <li id="menu-item-200" class="menu-item menu-item-type-post_type menu-item-object-page nav-item menu-item-200"><a title="About ISRT" href="{{route('frontend.about')}}" class="nav-link">About GDR</a></li>
                             <li id="menu-item-265" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children nav-item menu-item-265 dropdown"><a title="Training" href="#" data-toggle="dropdown" class="nav-link dropdown-toggle" aria-haspopup="true">Training <span class="caret"></span></a>
                                 <ul class=" dropdown-menu" role="menu">
-                                    <li id="menu-item-6681" class="menu-item menu-item-type-post_type menu-item-object-page nav-item menu-item-6681"><a title="We Offer to Indexed Article Writers" href="{{route('frontend.stata')}}" class="nav-link">We Offer to Indexed Article Writers</a></li>
-                                    <li id="menu-item-2598" class="menu-item menu-item-type-post_type menu-item-object-page nav-item menu-item-2598"><a title="We Offer to PhD Researchers" href="{{route('frontend.appliedStatistics')}}" class="nav-link">We Offer to PhD Researchers</a></li>
+                                    @foreach($trainingCategory as $category)
+                                        <li id="menu-item-6681"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page nav-item menu-item-6681">
+                                            <a href="#" class="nav-link">
+                                                {{ Str::limit($category->name, 25) }}
+                                            </a>
+                                        </li>
+                                    @endforeach
+
+                                    {{--                                    <li id="menu-item-6681" class="menu-item menu-item-type-post_type menu-item-object-page nav-item menu-item-6681"><a title="We Offer to Indexed Article Writers" href="{{route('frontend.stata')}}" class="nav-link">We Offer to Indexed Article Writers</a></li>--}}
+{{--                                    <li id="menu-item-2598" class="menu-item menu-item-type-post_type menu-item-object-page nav-item menu-item-2598"><a title="We Offer to PhD Researchers" href="{{route('frontend.appliedStatistics')}}" class="nav-link">We Offer to PhD Researchers</a></li>--}}
                                     {{-- <li id="menu-item-2602" class="menu-item menu-item-type-post_type menu-item-object-page nav-item menu-item-2602"><a title="SPSS" href="{{route('frontend.spss')}}" class="nav-link">SPSS</a></li> --}}
                                 </ul>
                             </li>
@@ -107,9 +116,17 @@
                                 <a title="Conference" href="#" data-toggle="dropdown" class="nav-link dropdown-toggle" aria-haspopup="true">Conference <span class="caret"></span>
                                 </a>
                                 <ul class=" dropdown-menu" role="menu">
-                                    <li id="menu-item-6687" class="menu-item menu-item-type-custom menu-item-object-custom nav-item menu-item-6687"><a title="ICAS2014" href="{{route('frontendConferenceUS')}}" class="nav-link">ICAS2014</a></li>
-                                    <li id="menu-item-6686" class="menu-item menu-item-type-custom menu-item-object-custom nav-item menu-item-6686"><a title="ICAS2019" href="{{route('frontendConferenceUS')}}" class="nav-link">ICAS2019</a></li>
-                                    <li id="menu-item-6689" class="menu-item menu-item-type-custom menu-item-object-custom nav-item menu-item-6689"><a title="ICASDS2025" href="{{route('frontendConferenceUS')}}" class="nav-link">ICASDS2025</a></li>
+                                    @foreach($conferenceCategory as $category)
+                                        <li id="menu-item-6681"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page nav-item menu-item-6681">
+                                            <a href="{{ route('frontendConferenceUS', $category->name) }}" class="nav-link">
+                                                {{ Str::limit($category->name, 25) }}
+                                            </a>
+                                        </li>
+                                    @endforeach
+{{--                                    <li id="menu-item-6687" class="menu-item menu-item-type-custom menu-item-object-custom nav-item menu-item-6687"><a title="ICAS2014" href="{{route('frontendConferenceUS')}}" class="nav-link">ICAS2014</a></li>--}}
+{{--                                    <li id="menu-item-6686" class="menu-item menu-item-type-custom menu-item-object-custom nav-item menu-item-6686"><a title="ICAS2019" href="{{route('frontendConferenceUS')}}" class="nav-link">ICAS2019</a></li>--}}
+{{--                                    <li id="menu-item-6689" class="menu-item menu-item-type-custom menu-item-object-custom nav-item menu-item-6689"><a title="ICASDS2025" href="{{route('frontendConferenceUS')}}" class="nav-link">ICASDS2025</a></li>--}}
                                 </ul>
                             </li>
 

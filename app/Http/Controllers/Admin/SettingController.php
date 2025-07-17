@@ -60,6 +60,7 @@ class SettingController extends Controller
                 "CONTACT_EMAIL",
                 "CONTACT_PHONE",
                 "CONTACT_ADDRESS",
+                "HOME_PAGE_CONTENT",
                 "CONTACT_GOOGLE_MAP",
                 "SETTING_ABOUT_US",
             ];

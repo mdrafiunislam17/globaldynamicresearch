@@ -3,8 +3,11 @@
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\ConferenceCategoryController;
 use App\Http\Controllers\Admin\ConferenceController;
+use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\PublicationController;
 use App\Http\Controllers\Admin\SeminarController;
+use App\Http\Controllers\Admin\TrainingCategoryController;
+use App\Http\Controllers\Admin\TrainingController;
 use App\Http\Controllers\Admin\WorkshopController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
@@ -31,16 +34,20 @@ use App\Http\Controllers\Admin\SliderController;
 // });
 
 Route::get('/',[FrontendController::class,'index'])->name('frontend.index');
+
 Route::get('aboutUS',[FrontendController::class,'aboutus'])->name('frontend.about');
-Route::get('stata',[FrontendController::class,'stata'])->name('frontend.stata');
-Route::get('AppliedStatistics',[FrontendController::class,'appliedStatistics'])
-                                                ->name('frontend.appliedStatistics');
+Route::get('Frontend_Training_Category/{slug}', [FrontendController::class, 'frontendTrainingCategory'])
+                                        ->name('frontendTrainingCategory');
+
+//Route::get('stata',[FrontendController::class,'stata'])->name('frontend.stata');
+//Route::get('AppliedStatistics',[FrontendController::class,'appliedStatistics'])
+//                                                ->name('frontend.appliedStatistics');
 Route::get('spss',[FrontendController::class,'spss'])->name('frontend.spss');
 Route::get('workshops',[FrontendController::class,'workshops'])
                                             ->name('frontend.workshop');
 Route::get('seminars',[FrontendController::class,'seminar'])->name('frontendSeminar');
 
-Route::get('conferenceUs',[FrontendController::class,'ConferenceICAS'])
+Route::get('conferenceUs/{name}',[FrontendController::class,'ConferenceICAS'])
                                             ->name('frontendConferenceUS');
 
 Route::get('publications',[FrontendController::class,'publications'])
@@ -59,6 +66,8 @@ Auth::routes();
 
 Route::middleware('auth')->group(function () {
 
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+
     Route::resource("sliders", SliderController::class);
 
     Route::resource('abouts',AboutController::class);
@@ -72,9 +81,18 @@ Route::middleware('auth')->group(function () {
     Route::resource('conference-categories',ConferenceCategoryController::class);
     Route::resource('conference',ConferenceController::class);
 
+    Route::resource('training-categories',TrainingCategoryController::class);
+    Route::resource('training',TrainingController::class);
+
+
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::post('/profile/update', [ProfileController::class, 'profileUpdate'])->name('profile.update');
+
+
+
     Route::get("settings", [SettingController::class, "index"])->name("setting.index");
     Route::put("settings", [SettingController::class, "update"])->name("setting.update");
 
 });
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+

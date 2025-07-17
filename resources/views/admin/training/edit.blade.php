@@ -1,12 +1,12 @@
 @extends("admin.layouts.master")
-@section("title", "Edit conference")
+@section("title", "Edit training")
 @section("content")
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Edit conference</h1>
-        <a href="{{ route("conference.index") }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-            <i class="fas fa-eye fa-sm text-white-50"></i> conferences
+        <h1 class="h3 mb-0 text-gray-800">Edit training</h1>
+        <a href="{{ route("training.index") }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+            <i class="fas fa-eye fa-sm text-white-50"></i> trainings
         </a>
     </div>
 
@@ -37,7 +37,7 @@
 
     <div class="card shadow mb-4">
         <div class="card-body">
-            <form action="{{ route("conference.update", $conference->id) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route("training.update", $training->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method("PUT")
 
@@ -46,8 +46,8 @@
                     <div class="col-sm-6">
                         <select name="category_id" id="category_id" class="form-control">
                             <option value="">Select Category</option>
-                            @foreach($conferenceCategory as $category)
-                                <option value="{{ $category->id }}" {{ $conference->category_id == $category->id ? "selected" : "" }}>{{ $category->name }}</option>
+                            @foreach($trainingCategory as $category)
+                                <option value="{{ $category->id }}" {{ $training->category_id == $category->id ? "selected" : "" }}>{{ $category->name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -56,21 +56,21 @@
                 <div class="form-group row">
                     <label for="title" class="col-sm-3 col-form-label text-right font-weight-bold">Title</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="title" name="title" value="{{ old('title', $conference->title) }}">
+                        <input type="text" class="form-control" id="title" name="title" value="{{ old('title', $training->title) }}">
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="subtitle" class="col-sm-3 col-form-label text-right font-weight-bold">Subtitle</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="subtitle" name="subtitle" value="{{ old('subtitle', $conference->subtitle) }}">
+                        <input type="text" class="form-control" id="subtitle" name="subtitle" value="{{ old('subtitle', $training->subtitle) }}">
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="description" class="col-sm-3 col-form-label text-right font-weight-bold">Description</label>
                     <div class="col-sm-6">
-                        <textarea name="description" id="description" class="form-control" rows="5">{{ old('description', $conference->description) }}</textarea>
+                        <textarea name="description" id="description" class="form-control" rows="5">{{ old('description', $training->description) }}</textarea>
                     </div>
                 </div>
 
@@ -78,8 +78,8 @@
                     <label for="image" class="col-sm-3 col-form-label text-right font-weight-bold">Image</label>
                     <div class="col-sm-6">
                         <input type="file" class="form-control" id="image" name="image">
-                        @if($conference->image)
-                            <img src="{{ asset('uploads/conference/' . $conference->image) }}" alt="Image" class="img-thumbnail mt-2" width="150">
+                        @if($training->image)
+                            <img src="{{ asset('uploads/training/' . $training->image) }}" alt="Image" class="img-thumbnail mt-2" width="150">
                         @endif
                     </div>
                 </div>
@@ -88,8 +88,8 @@
                     <label for="status" class="col-sm-3 col-form-label text-right font-weight-bold">Status</label>
                     <div class="col-sm-6">
                         <select name="status" id="status" class="form-control">
-                            <option value="1" {{ $conference->status == 1 ? "selected" : "" }}>Active</option>
-                            <option value="0" {{ $conference->status == 0 ? "selected" : "" }}>Inactive</option>
+                            <option value="1" {{ $training->status == 1 ? "selected" : "" }}>Active</option>
+                            <option value="0" {{ $training->status == 0 ? "selected" : "" }}>Inactive</option>
                         </select>
                     </div>
                 </div>
