@@ -1,13 +1,13 @@
 @extends("admin.layouts.master")
-@section("title", "Edit Event")
+@section("title", "Edit Announcement")
 @section("content")
     <div class="container-fluid">
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Edit Event</h1>
-            <a href="{{ route("events.index") }}"
+            <h1 class="h3 mb-0 text-gray-800">Edit Announcement</h1>
+            <a href="{{ route("announcements.index") }}"
                class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                        class="fas fa-eye fa-sm text-white-50"></i> Events</a>
+                        class="fas fa-eye fa-sm text-white-50"></i> Announcements</a>
         </div>
 
         @if ($errors->any())
@@ -44,15 +44,15 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-body">
-                <form action="{{ route("events.update", $event->id) }}" method="post"
+                <form action="{{ route("announcements.update", $announcement->id) }}" method="post"
                       enctype="multipart/form-data">
                     @csrf
                     @method("PUT")
                     <div class="form-group row">
-                        <label for="event_name" class="col-sm-3 col-form-label text-right font-weight-bold">Event Name
+                        <label for="event_name" class="col-sm-3 col-form-label text-right font-weight-bold">Announcement Name
                             *</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="event_name" value="{{ $event->event_name }}"
+                            <input type="text" class="form-control" id="event_name" value="{{ $announcement->event_name }}"
                                    name="event_name"
                                    autofocus>
                         </div>
@@ -62,7 +62,7 @@
                         <label for="location" class="col-sm-3 col-form-label text-right font-weight-bold">Location
                             *</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="location" value="{{ $event->location }}"
+                            <input type="text" class="form-control" id="location" value="{{ $announcement->location }}"
                                    name="location">
                         </div>
                     </div>
@@ -71,7 +71,7 @@
                         <label for="event_date" class="col-sm-3 col-form-label text-right font-weight-bold">Date
                             *</label>
                         <div class="col-sm-6">
-                            <input type="date" class="form-control" id="event_date" value="{{ $event->event_date }}"
+                            <input type="date" class="form-control" id="event_date" value="{{ $announcement->event_date }}"
                                    name="event_date">
                         </div>
                     </div>
@@ -80,7 +80,7 @@
                         <label for="start_time" class="col-sm-3 col-form-label text-right font-weight-bold">Start Time
                             *</label>
                         <div class="col-sm-6">
-                            <input type="time" class="form-control" id="start_time" value="{{ $event->start_time }}"
+                            <input type="time" class="form-control" id="start_time" value="{{ $announcement->start_time }}"
                                    name="start_time">
                         </div>
                     </div>
@@ -89,7 +89,7 @@
                         <label for="end_time" class="col-sm-3 col-form-label text-right font-weight-bold">End Time
                             *</label>
                         <div class="col-sm-6">
-                            <input type="time" class="form-control" id="end_time" value="{{ $event->end_time }}"
+                            <input type="time" class="form-control" id="end_time" value="{{ $announcement->end_time }}"
                                    name="end_time">
                         </div>
                     </div>
@@ -97,7 +97,7 @@
                     <div class="form-group row">
                         <label for="email" class="col-sm-3 col-form-label text-right font-weight-bold">Email *</label>
                         <div class="col-sm-6">
-                            <input type="email" class="form-control" id="email" value="{{ $event->email }}"
+                            <input type="email" class="form-control" id="email" value="{{ $announcement->email }}"
                                    name="email">
                         </div>
                     </div>
@@ -105,7 +105,7 @@
                     <div class="form-group row">
                         <label for="phone" class="col-sm-3 col-form-label text-right font-weight-bold">Phone *</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="phone" value="{{ $event->phone }}"
+                            <input type="text" class="form-control" id="phone" value="{{ $announcement->phone }}"
                                    name="phone">
                         </div>
                     </div>
@@ -114,8 +114,8 @@
                         <label for="image"
                                class="col-sm-3 col-form-label text-right font-weight-bold">Existing Image</label>
                         <div class="col-sm-6">
-                            <img src="{{ asset("uploads/event/$event->image") }}" width="120"
-                                 alt="{{ $event->image }}">
+                            <img src="{{ asset("uploads/announcement/$announcement->image") }}" width="120"
+                                 alt="{{ $announcement->image }}">
                         </div>
                     </div>
 
@@ -132,7 +132,7 @@
                                class="col-sm-3 col-form-label text-right font-weight-bold">Short Description *</label>
                         <div class="col-sm-6">
                             <textarea name="short_description" id="short_description"
-                                      class="form-control" @style(["height: 160px"])>{{ $event->short_description }}</textarea>
+                                      class="form-control" @style(["height: 160px"])>{{ $announcement->short_description }}</textarea>
                         </div>
                     </div>
 
@@ -141,7 +141,7 @@
                                class="col-sm-3 col-form-label text-right font-weight-bold">Description *</label>
                         <div class="col-sm-6">
                             <textarea name="description" id="description"
-                                      class="form-control">{{ $event->description }}</textarea>
+                                      class="form-control">{{ $announcement->description }}</textarea>
                         </div>
                     </div>
 
@@ -150,7 +150,7 @@
                                class="col-sm-3 col-form-label text-right font-weight-bold">Location (Google Map)</label>
                         <div class="col-sm-6">
                             <textarea name="location_map" id="location_map"
-                                      class="form-control" @style(["height: 160px"])>{{ $event->location_map }}</textarea>
+                                      class="form-control" @style(["height: 160px"])>{{ $announcement->location_map }}</textarea>
                         </div>
                     </div>
 
@@ -158,8 +158,8 @@
                         <label for="status" class="col-sm-3 col-form-label text-right font-weight-bold">Status</label>
                         <div class="col-sm-6">
                             <select name="status" id="status" class="form-control">
-                                <option value="1" {{ $event->status == 1 ? "selected" : "" }}>Active</option>
-                                <option value="0" {{ $event->status == 0 ? "selected" : "" }}>Inactive</option>
+                                <option value="1" {{ $announcement->status == 1 ? "selected" : "" }}>Active</option>
+                                <option value="0" {{ $announcement->status == 0 ? "selected" : "" }}>Inactive</option>
                             </select>
                         </div>
                     </div>
@@ -180,18 +180,18 @@
                                 </thead>
 
                                 <tbody>
-                                @if (empty($event->gallery))
+                                @if (empty($announcement->gallery))
                                     <tr>
                                         <td colspan="3" class="text-center">Image not exist</td>
                                     </tr>
                                 @else
-                                  @foreach($event->gallery as $i => $image)
+                                  @foreach($announcement->gallery as $i => $image)
                                     <tr id="gallery_item_{{ ++$i }}">
                                         <td>
                                             <input type="hidden" name="hidden_gallery[]" value="{{ $image }}">
                                             {{ $i }}
                                         </td>
-                                        <td><img src="{{ asset("uploads/event/gallery/$image") }}" width="100" alt="{{ $image }}"></td>
+                                        <td><img src="{{ asset("uploads/announcement/gallery/$image") }}" width="100" alt="{{ $image }}"></td>
                                         <td style="width: 50px">
                                             <button type="button" onclick="document.getElementById('gallery_item_{{ $i }}').remove()" class="btn btn-sm btn-danger">
                                                 <i class="fa fa-times"></i>

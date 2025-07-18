@@ -3,19 +3,18 @@
             min-height: 1px
         }
     </style>
-    <link href="assets/js/wp-emoji-release.min.js" as="script">
+    <link href="{{asset('assets/js/wp-emoji-release.min.js')}}" as="script">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="globaldynamiCresearch - ISRT, University of Dhaka">
     {{-- <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="pingback" href="https://isrt.ac.bd/xmlrpc.php"> --}}
     <link rel="stylesheet" href="{{url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')}}">
 
      @stack("styles")
-    <title>globaldynamiCresearch &#8211; ISRT, University of Dhaka</title>
+    <title>globaldynamiCresearch</title>
     <meta name='robots' content='max-image-preview:large' />
     <style>
         img:is([sizes="auto" i], [sizes^="auto," i]) {
@@ -42,7 +41,7 @@
             padding: 0 !important;
         }
     </style>
-    <link rel="stylesheet" href="assets/wp-content/cache/minify/a5ff7.css" media="all" />
+    <link rel="stylesheet" href="{{asset('assets/cache/minify/a5ff7.css')}}" media="all" />
 
     <style id='classic-theme-styles-inline-css' type='text/css'>
         /*! This file is auto-generated */
@@ -388,7 +387,7 @@
             line-height: 1.6;
         }
     </style>
-    <link rel="stylesheet" href="{{asset('assets/wp-content/cache/minify/300ec.css')}}" media="all" />
+    <link rel="stylesheet" href="{{asset('assets/cache/minify/300ec.css')}}" media="all" />
 
     <style id='nfd-wonder-blocks-utilities-inline-css' type='text/css'>
         .nfd-relative {
@@ -2597,7 +2596,7 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="assets/cache/minify/859e9.css" media="all" />
+    <link rel="stylesheet" href="{{asset('assets/cache/minify/859e9.css')}}" media="all" />
 
     <style id='akismet-widget-style-inline-css' type='text/css'>
         .a-stats {
@@ -2751,15 +2750,16 @@
         })();
         /* ]]> */
     </script>
-    <script src="assets/cache/minify/818c0.js"></script>
+    <script src="{{asset('assets/cache/minify/818c0.js')}}"></script>
 
 
     <link  href="{{asset('assets/json/wp-json.json')}}" />
-    <link rel="alternate" title="JSON" type="application/json" href="https://isrt.ac.bd/wp-json/wp/v2/pages/22" />
+{{--    <link rel="alternate" title="JSON" type="application/json" href="https://isrt.ac.bd/wp-json/wp/v2/pages/22" />--}}
 
-    <link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://isrt.ac.bd/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fisrt.ac.bd%2F" />
-    <link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://isrt.ac.bd/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fisrt.ac.bd%2F&#038;format=xml" />
-    <!-- HFCM by 99 Robots - Snippet # 1: Top marquee -->
+{{--    <link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://isrt.ac.bd/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fisrt.ac.bd%2F" />--}}
+{{--    <link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://isrt.ac.bd/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fisrt.ac.bd%2F&#038;format=xml" />--}}
+{{--    --}}
+ <!-- HFCM by 99 Robots - Snippet # 1: Top marquee -->
     <div class="custom-marquee">
         <div class="marquee-content">
             <a href="#" style="color: red;">
@@ -2804,13 +2804,13 @@
         }
     </style>
     <!-- /end HFCM by 99 Robots -->
-    <meta name="tec-api-version" content="v1">
-    <meta name="tec-api-origin" content="https://isrt.ac.bd">
-    <link rel="alternate" href="https://isrt.ac.bd/wp-json/tribe/events/v1/" />
-    <link rel="icon" href="https://isrt.ac.bd/wp-content/uploads/2017/04/du-logo-26px.png" sizes="32x32" />
-    <link rel="icon" href="https://isrt.ac.bd/wp-content/uploads/2017/04/du-logo-26px.png" sizes="192x192" />
-    <link rel="apple-touch-icon" href="https://isrt.ac.bd/wp-content/uploads/2017/04/du-logo-26px.png" />
-    <meta name="msapplication-TileImage" content="https://isrt.ac.bd/wp-content/uploads/2017/04/du-logo-26px.png" />
+{{--    <meta name="tec-api-version" content="v1">--}}
+{{--    <meta name="tec-api-origin" content="https://isrt.ac.bd">--}}
+{{--    <link rel="alternate" href="https://isrt.ac.bd/wp-json/tribe/events/v1/" />--}}
+{{--    <link rel="icon" href="https://isrt.ac.bd/wp-content/uploads/2017/04/du-logo-26px.png" sizes="32x32" />--}}
+{{--    <link rel="icon" href="https://isrt.ac.bd/wp-content/uploads/2017/04/du-logo-26px.png" sizes="192x192" />--}}
+{{--    <link rel="apple-touch-icon" href="https://isrt.ac.bd/wp-content/uploads/2017/04/du-logo-26px.png" />--}}
+{{--    <meta name="msapplication-TileImage" content="https://isrt.ac.bd/wp-content/uploads/2017/04/du-logo-26px.png" />--}}
     <style type="text/css" id="wp-custom-css">
         /*
 You can add your own CSS here.

@@ -136,6 +136,34 @@
         </a>
     </li>
 
+
+    <li class="nav-item {{
+        request()->routeIs("events.index") ||
+        request()->routeIs("events.create") ||
+        request()->routeIs("events.show") ||
+        request()->routeIs("events.edit")
+        ? "active" : "" }}">
+        <a class="nav-link" href="{{ route("events.index") }}">
+            <i class="fas fa-fw fa-list-ol"></i>
+            <span>Events</span>
+        </a>
+    </li>
+
+
+
+    <li class="nav-item {{
+        request()->routeIs("announcements.index") ||
+        request()->routeIs("announcements.create") ||
+        request()->routeIs("announcements.show") ||
+        request()->routeIs("announcements.edit")
+        ? "active" : "" }}">
+        <a class="nav-link" href="{{ route("announcements.index") }}">
+            <i class="fas fa-fw fa-newspaper"></i>
+            <span>Announcements</span>
+
+        </a>
+    </li>
+
     {{-- <li class="nav-item {{
     request()->routeIs("career.index") ||
     request()->routeIs("career.create") ||

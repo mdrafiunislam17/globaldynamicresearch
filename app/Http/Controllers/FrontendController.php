@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Conference;
 use App\Models\ConferenceCategory;
+use App\Models\Publication;
 use App\Models\Setting;
 use App\Models\Slider;
 use App\Models\Training;
 use App\Models\TrainingCategory;
+use App\Models\Workshop;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -31,28 +34,31 @@ class FrontendController extends Controller
              'conferenceCategory'));
     }
 
-    public function frontendTrainingCategory($slug)
+    public function frontendTrainingCategory(Request $request, $name)
     {
         $settings = Setting::query()->pluck("value", "setting_name")->toArray();
 
-        // ✅ If you want ALL categories
+        // All categories for the sidebar/menu
         $trainingCategory = TrainingCategory::all();
 
-        // ✅ If you want ONLY the clicked category
-        $selectedCategory = TrainingCategory::all();
+        // Find the selected category by name (assumes 'name' is unique)
+        $category = TrainingCategory::where('name', $name)->firstOrFail();
+
+        // Only trainings that belong to the selected category
+        $allLocations  = Training::where('category_id', $category->id);
+        $training = $allLocations->first();
 
         $conferenceCategory = ConferenceCategory::all();
-
-        $training = Training::where('slug', $slug)->firstOrFail();
 
         return view('frontend.frontendTrainingCategory', compact(
             'settings',
             'trainingCategory',
             'conferenceCategory',
-            'selectedCategory',
+            'category',
             'training'
         ));
     }
+
 
 
 
@@ -60,7 +66,11 @@ class FrontendController extends Controller
     {
         $about = About::latest()->first();
         $settings = Setting::query()->pluck("value", "setting_name")->toArray();
-        return view('frontend.aboutus',compact('settings','about'));
+
+        // All categories for the sidebar/menu
+        $trainingCategory = TrainingCategory::all();
+        $conferenceCategory = ConferenceCategory::all();
+        return view('frontend.aboutus',compact('settings','about','trainingCategory','conferenceCategory'));
     }
 
     public function spss()
@@ -70,7 +80,13 @@ class FrontendController extends Controller
 
     public function workshops()
     {
-        return view('frontend.workshops');
+        $settings = Setting::query()->pluck("value", "setting_name")->toArray();
+
+        // All categories for the sidebar/menu
+        $trainingCategory = TrainingCategory::all();
+        $conferenceCategory = ConferenceCategory::all();
+        $workshops = Workshop::all();
+        return view('frontend.workshops',compact('settings','trainingCategory','conferenceCategory','workshops'));
     }
 
     public function seminar()
@@ -78,18 +94,44 @@ class FrontendController extends Controller
         return view('frontend.seminar');
     }
 
-    public function ConferenceICAS()
+    public function ConferenceICAS(Request $request, $name)
     {
-        return view('frontend.ConferenceIcas');
+        $settings = Setting::query()->pluck("value", "setting_name")->toArray();
+
+        // All categories for the sidebar/menu
+        $trainingCategory = TrainingCategory::all();
+        $conferenceCategory = ConferenceCategory::all();
+
+        // Find the selected category by name (assumes 'name' is unique)
+        $category = ConferenceCategory::where('name', $name)->firstOrFail();
+
+        // Only trainings that belong to the selected category
+        $allLocations  = Conference::where('category_id', $category->id);
+        $conference = $allLocations->first();
+
+
+        return view('frontend.ConferenceIcas',compact('settings','trainingCategory','conference','conferenceCategory'));
     }
 
     public function publications()
     {
-        return view('frontend.publications');
+
+        $settings = Setting::query()->pluck("value", "setting_name")->toArray();
+
+        // All categories for the sidebar/menu
+        $trainingCategory = TrainingCategory::all();
+        $conferenceCategory = ConferenceCategory::all();
+        $publications =Publication::all();
+        return view('frontend.publications',compact('settings','trainingCategory','conferenceCategory','publications'));
     }
 
     public function contactUs(){
-        return view('frontend.contactUs');
+        $settings = Setting::query()->pluck("value", "setting_name")->toArray();
+
+        // All categories for the sidebar/menu
+        $trainingCategory = TrainingCategory::all();
+        $conferenceCategory = ConferenceCategory::all();
+        return view('frontend.contactUs',compact('settings','trainingCategory','conferenceCategory'));
     }
 
     public function books(){
@@ -102,6 +144,11 @@ class FrontendController extends Controller
 
     public function payment()
     {
-        return view('frontend.payment');
+        $settings = Setting::query()->pluck("value", "setting_name")->toArray();
+
+        // All categories for the sidebar/menu
+        $trainingCategory = TrainingCategory::all();
+        $conferenceCategory = ConferenceCategory::all();
+        return view('frontend.payment',compact('settings','trainingCategory','conferenceCategory'));
     }
 }

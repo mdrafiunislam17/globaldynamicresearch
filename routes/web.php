@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\AnnouncementController;
 use App\Http\Controllers\Admin\ConferenceCategoryController;
 use App\Http\Controllers\Admin\ConferenceController;
+use App\Http\Controllers\Admin\EventController as EventControllers;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\PublicationController;
 use App\Http\Controllers\Admin\SeminarController;
@@ -36,7 +38,7 @@ use App\Http\Controllers\Admin\SliderController;
 Route::get('/',[FrontendController::class,'index'])->name('frontend.index');
 
 Route::get('aboutUS',[FrontendController::class,'aboutus'])->name('frontend.about');
-Route::get('Frontend_Training_Category/{slug}', [FrontendController::class, 'frontendTrainingCategory'])
+Route::get('Training/{name}', [FrontendController::class, 'frontendTrainingCategory'])
                                         ->name('frontendTrainingCategory');
 
 //Route::get('stata',[FrontendController::class,'stata'])->name('frontend.stata');
@@ -55,7 +57,7 @@ Route::get('publications',[FrontendController::class,'publications'])
 Route::get('payment', [FrontendController::class, 'payment'])
                                             ->name('frontend.payment');
 
-Route::get('events',[FrontendController::class,'events'])->name('frontend.events');
+Route::get('event',[FrontendController::class,'events'])->name('frontend.events');
 
 Route::get('books',[FrontendController::class,'books'])->name('frontend.books');
 
@@ -84,6 +86,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('training-categories',TrainingCategoryController::class);
     Route::resource('training',TrainingController::class);
 
+    Route::resource('events', EventControllers::class);
+    Route::resource('announcements',AnnouncementController::class);
 
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     Route::post('/profile/update', [ProfileController::class, 'profileUpdate'])->name('profile.update');
